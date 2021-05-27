@@ -13,20 +13,18 @@
 
 
 
+var soLuong = document.getElementById('soLuong');
 
-var so_luong = document.getElementById('so_luong');
 
 var luonNhanVien;
 
-bnt_soluong.onclick = function() {
-    var so_tien = document.getElementById('so_tien').value;
+bnt_soLuong.onclick = function() {
+    var soTien = document.getElementById('soTien').value;
+    var soNgay = document.getElementById('soNgay').value;
+    var luonNhanVien = soTien * soNgay;
 
-    var so_ngay = document.getElementById('so_ngay').value;
+    soLuong.innerHTML = luonNhanVien + " VNĐ"
 
-    var luonNhanVien = so_tien * so_ngay;
-
-    so_luong.innerHTML =  luonNhanVien + ' có cơm'
-    console.log(so_luong);
 }
 
 
@@ -40,10 +38,10 @@ bnt_soluong.onclick = function() {
  */
 
 
-var giaTriTB;
-var so_tb = document.getElementById('so_tb');
+var giaTriTrungBinh;
+var so_trungBinh = document.getElementById('so_trungBinh');
 
-bnt_TB.onclick = function() {
+bnt_trungBinh.onclick = function() {
 
     var so_1 = parseInt(document.getElementById('so_1').value);
 
@@ -55,11 +53,9 @@ bnt_TB.onclick = function() {
 
     var so_5 = parseInt(document.getElementById('so_5').value);
 
-    var giaTriTB = (so_1 + so_2 + so_3 + so_4 + so_5)/5;
+    var giaTriTrungBinh = (so_1 + so_2 + so_3 + so_4 + so_5)/5;
 
-    so_tb.innerHTML = giaTriTB;
-
-    console.log(giaTriTB);
+    so_trungBinh.innerHTML =' Giá trị Trung Bình: ' + giaTriTrungBinh;
 }
 
 
@@ -75,12 +71,12 @@ bnt_TB.onclick = function() {
 
 
 
-var bnt_sotien = document.getElementById('bnt_sotien')
+var bnt_soTien = document.getElementById('bnt_soTien')
 
-bnt_sotien.onclick = function() {
-    var so_tien_quy_doi = document.getElementById('so_tien_quy_doi').value;
+bnt_soTien.onclick = function() {
+    var soTienCanQuyDoi = document.getElementById('soTienCanQuyDoi').value;
     var soTienQuyDoi = 23500;
-    var soTienUsd = so_tien_quy_doi*soTienQuyDoi;
+    var soTienUsd = soTienCanQuyDoi*soTienQuyDoi;
 
     alert('Số tiền quy đổi ' + soTienUsd + ' VNĐ')
 }
@@ -95,16 +91,16 @@ bnt_sotien.onclick = function() {
  * b3: xuất kết quả
  */
 
-var bnt_CM = document.getElementById('bnt_CM')
+var bnt_giaTri = document.getElementById('bnt_giaTri')
 
-bnt_CM.onclick = function() {
-    var chieuDai = document.getElementById('chieuDai').value;
-    var chieuRong = document.getElementById('chieuRong').value;
+bnt_giaTri.onclick = function() {
+    var chieuDai = parseInt(document.getElementById('chieuDai').value);
+    var chieuRong = parseInt(document.getElementById('chieuRong').value);
 
     var dienTich = chieuDai * chieuRong;
-    var chuVi = (chieuDai*1 + chieuRong*1)*2
+    var chuVi = (chieuDai + chieuRong)*2
     alert('Diện tích: ' + dienTich + 'CM^2')
-    alert('Chu vi: ' + chuVi + 'CM')
+    alert('Chu vi: ' + chuVi + ' CM')
 }
 
 
@@ -119,16 +115,13 @@ bnt_CM.onclick = function() {
  * b3: xuất giá trị
  */
 
-var bnt_So = document.getElementById('bnt_So')
+var bnt_So = document.getElementById('bnt_so')
 
-bnt_So.onclick = function() {
+bnt_so.onclick = function() {
     var so = document.getElementById('so').value;
-
-    var so_hang_dv = so % 10;
-    var so_hang_chuc = so / 10;
-    console.log(so)
-    var sum = Number(so_hang_dv) + Number(so_hang_chuc);
-    console.log(sum)
+    var so_hang_dv = Math.abs(so % 10);
+    var so_hang_chuc = parseInt(so / 10);
+    var sum = so_hang_dv + so_hang_chuc;
     alert(sum);
 }
 
